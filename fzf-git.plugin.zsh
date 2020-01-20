@@ -51,9 +51,7 @@ __fzf_git_remote() {
 __fzf_git_bind_helper() {
   eval "fzf-git-$1-widget() { \
     LBUFFER=\"\${LBUFFER}\$(__fzf_git_$1 | __fzf_git_join_lines)\"; \
-    if [[ -z \"\${TMUX}\" ]]; then \
-      zle reset-prompt; \
-    fi \
+    zle reset-prompt; \
   }"
   eval "zle -N fzf-git-$1-widget"
   eval "bindkey '$2' fzf-git-$1-widget"
